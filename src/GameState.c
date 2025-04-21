@@ -135,7 +135,8 @@ int main(int argc, char** argv)
 	//GRe_play_AI_aleatoire_adjacent(&state, 2);
 	//GRe_play_game_AI_glouton(&state, 2);
 	//GRe_AI_aleatoire_vs_glouton(&state, 500);
-	GRe_play_AI_frontiere(&state, 2);
+	//GRe_play_AI_frontiere(&state, 2);
+	GRe_play_AI_frontiere_glouton(&state, 2);
 
 
 	free(state.map);
