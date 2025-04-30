@@ -92,7 +92,7 @@ int GRe_Joueur_aleatoire_adjacent(GameState* map, Color player)
 	{
 		color = rand() % (max+1 - min) + min;
 	}
-	return color + 3;
+	return color;
 
 }
 

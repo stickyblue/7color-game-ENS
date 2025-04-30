@@ -1,6 +1,6 @@
 FLAGS=-Wall -Werror -lm -g
 
-7color : o/GameState.o o/Display.o o/AIRandom.o o/AIGlouton.o o/AIFrontiere.o o/UpdateGame.o
+7color : o/GameState.o o/Display.o o/AIRandom.o o/AIGlouton.o o/AIFrontiere.o o/UpdateGame.o o/Battle.o
 	gcc $(FLAGS) o/GameState.o o/Display.o o/AIRandom.o o/AIGlouton.o o/AIFrontiere.o o/UpdateGame.o o/Battle.o -o 7color
 	
 o/GameState.o: head/GameState.h src/GameState.c

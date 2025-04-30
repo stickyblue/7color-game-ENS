@@ -17,4 +17,7 @@ typedef enum AI
     FRONTIEREGL
 }AI;
 
+void GRe_battle(GameState* game, int numberOfGame, int ai1, int ai2);
+int GRe_AIAnswer(GameState* game, int ai, Color player);
+
 #endif

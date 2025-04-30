@@ -92,15 +92,17 @@ int main(int argc, char** argv)
 	sscanf(argv[1], "%d", &mapsize);
 	create_empty_game_state(&state, mapsize);
 	fill_map(&state);
-	//GRe_play_game_two_players(&state , mapsize);
-	//GRe_play_game_AI_aleatoire(&state, 2);
-	//GRe_play_AI_aleatoire_adjacent(&state, 2);
-	//GRe_play_game_AI_glouton(&state, 2);
-	//GRe_AI_aleatoire_vs_glouton(&state, 500);
-	//GRe_play_AI_frontiere(&state, 2);
-	//GRe_play_AI_frontiere_glouton(&state, 2);
-
-
+/*
+	for (int i = 1; i<= FRONTIEREGL; i++)
+	{
+		for (int j = 1; j <= FRONTIEREGL; j++)
+		{
+			fill_map(&state);
+			printf("AI 1 : %d, AI 2 : %d\n", i, j);
+			GRe_battle(&state, 10, i, j);
+		}
+	}
+*/
 	free(state.map);
 	return 0;
 
