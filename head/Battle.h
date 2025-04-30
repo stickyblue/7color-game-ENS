@@ -19,5 +19,6 @@ typedef enum AI
 
 void GRe_battle(GameState* game, int numberOfGame, int ai1, int ai2);
 int GRe_AIAnswer(GameState* game, int ai, Color player);
+int GRe_AnswerAIProgram(int ai, Color player, GameState* game);
 
 #endif

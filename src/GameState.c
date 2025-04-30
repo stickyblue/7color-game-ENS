@@ -6,6 +6,9 @@
 #include "../head/UpdateGame.h"
 #include "../head/Battle.h"
 
+#include <math.h>
+#include <string.h>
+
 
 GameState state = {.map = NULL, .size = 0};
 void create_empty_game_state (GameState* state, int size)
@@ -89,7 +92,7 @@ int main(int argc, char** argv)
 {
 	srand(time(NULL));
 	int mapsize = 0;
-	sscanf(argv[1], "%d", &mapsize);
+	sscanf(argv[1], "%d", &mapsize); // je sais le faire comme ça, mais je préfère utiliser atoi
 	create_empty_game_state(&state, mapsize);
 	fill_map(&state);
 /*
@@ -103,6 +106,28 @@ int main(int argc, char** argv)
 		}
 	}
 */
+	for (int k = 0; k < argc; k++)
+	{
+		char* tempargv = argv[k];
+		if (strcmp(tempargv, "--ai") == 0)
+		{
+			GameState givenstate = {.map = NULL, .size = 0};
+			int givenmapsize = sqrt(argc - k);
+			givenstate.map = malloc(givenmapsize * givenmapsize * sizeof(int));
+			givenstate.size = mapsize;
+			for (int i = 0; i < givenmapsize; i++)
+			{
+				for (int j = 0; j < givenmapsize; j++)
+				{
+					set_map_value(&givenstate, j, i, atoi(argv[k + 3 + i * givenmapsize + j]));
+				}
+			}
+			int result = GRe_AnswerAIProgram(atoi(argv[k+1]), atoi(argv[k+2]), &givenstate);
+			printf("%d\n", result);
+			return result;
+		}
+		
+	}
 	free(state.map);
 	return 0;
 

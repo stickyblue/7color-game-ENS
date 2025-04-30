@@ -1,7 +1,7 @@
-FLAGS=-Wall -Werror -lm -g
+FLAGS=-Wall -Werror -g
 
 7color : o/GameState.o o/Display.o o/AIRandom.o o/AIGlouton.o o/AIFrontiere.o o/UpdateGame.o o/Battle.o
-	gcc $(FLAGS) o/GameState.o o/Display.o o/AIRandom.o o/AIGlouton.o o/AIFrontiere.o o/UpdateGame.o o/Battle.o -o 7color
+	gcc $(FLAGS) o/GameState.o o/Display.o o/AIRandom.o o/AIGlouton.o o/AIFrontiere.o o/UpdateGame.o o/Battle.o -o 7color -lm
 	
 o/GameState.o: head/GameState.h src/GameState.c
 	gcc $(FLAGS) -c src/GameState.c -o o/GameState.o
