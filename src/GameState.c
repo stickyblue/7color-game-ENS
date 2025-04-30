@@ -4,6 +4,7 @@
 #include "../head/AIRandom.h"
 #include "../head/AIFrontiere.h"
 #include "../head/UpdateGame.h"
+#include "../head/Battle.h"
 
 
 GameState state = {.map = NULL, .size = 0};
@@ -82,45 +83,6 @@ void GRe_play_game_two_players(GameState* game, Color player)
 	}
 }
 
-//Espace intelligences artificielles
-
-
-//Battle 
-
-void GRe_AI_aleatoire_vs_glouton(GameState* game, int numberOfGame)
-{
-	int j1win = 0;
-	int j2win = 0;
-	Color color = ERROR;
-	int j1turn = 1;
-	for (int k = 0; k < numberOfGame; k++)
-	{
-		while (GRe_is_game_over(game) == 0)
-		{
-			if (j1turn == 1)
-			{
-				color = GRe_Joueur_aleatoire(game, 1);
-				GRe_update_map(game, color, PLAYER_1);
-				j1turn = 0;
-			} else
-			{
-				color = GRe_joueur_glouton(game, 2);
-				GRe_update_map(game, color, PLAYER_2);
-				j1turn = 1;
-			}
-		}
-		GRe_is_game_over(game) == 1 ? j1win++ : j2win++;
-		fill_map(game);
-	}
-	if (j1win > j2win)
-	{
-		printf("Victoire joueur 1 avec %d victoires sur %d\n", j1win, numberOfGame);
-	}
-	else
-	{
-		printf("Victoire joueur 2 avec %d victoires sur %d\n", j2win, numberOfGame);
-	}
-}
 
 
 int main(int argc, char** argv)
@@ -136,7 +98,7 @@ int main(int argc, char** argv)
 	//GRe_play_game_AI_glouton(&state, 2);
 	//GRe_AI_aleatoire_vs_glouton(&state, 500);
 	//GRe_play_AI_frontiere(&state, 2);
-	GRe_play_AI_frontiere_glouton(&state, 2);
+	//GRe_play_AI_frontiere_glouton(&state, 2);
 
 
 	free(state.map);
