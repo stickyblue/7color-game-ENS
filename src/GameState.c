@@ -124,6 +124,7 @@ int main(int argc, char** argv)
 			}
 			int result = GRe_AnswerAIProgram(atoi(argv[k+1]), atoi(argv[k+2]), &givenstate);
 			printf("%d\n", result);
+			free(givenstate.map);
 			return result;
 		}
 		

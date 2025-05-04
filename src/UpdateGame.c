@@ -42,6 +42,17 @@ void GRe_update_map(GameState* map, Color color, Color player)
 	}
 }
 
+void GRe_optimised_update_map(GameState* map, Color color, Color player)
+{
+	// use of Breadth First Search propagation to update the map
+	int taille_map = map -> size;
+	int* passee = malloc(taille_map * taille_map * sizeof(int));
+	for (int i = 0; i < taille_map * taille_map; i++)
+	{
+		passee[i] = 0;
+	}
+}
+
 int GRe_is_game_over(GameState* map)
 {
 	int taille_map = map -> size;
