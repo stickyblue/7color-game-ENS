@@ -75,21 +75,3 @@ int GRe_AIAnswer(GameState* game, int ai, Color player)
 	}
 }
 
-int GRe_AnswerAIProgram(int ai, Color player, GameState* game)
-{
-	switch (ai)
-	{
-		default:
-			return ERRORAI;
-		case ALEATOIRE:
-			return GRe_Joueur_aleatoire(game, player);
-		case ALEATOIREADJ:
-			return GRe_Joueur_aleatoire_adjacent(game, player);
-		case GLOUTON:
-			return GRe_joueur_glouton(game, player);
-		case FRONTIERE:
-			return GRe_joueur_frontiere(game, player);
-		case FRONTIEREGL:
-			return GRe_joueur_frontiere_glouton(game, player);
-	}
-}

@@ -60,7 +60,7 @@ void fill_map(GameState* map)
 }
 
 
-void GRe_play_game_two_players(GameState* game, Color player)
+void GRe_play_game_two_players(GameState* game)
 {
 	Color color = ERROR;
 	int j1turn = 1;
@@ -122,13 +122,15 @@ int main(int argc, char** argv)
 					set_map_value(&givenstate, j, i, atoi(argv[k + 3 + i * givenmapsize + j]));
 				}
 			}
-			int result = GRe_AnswerAIProgram(atoi(argv[k+1]), atoi(argv[k+2]), &givenstate);
+			int result = GRe_AIAnswer(&givenstate, atoi(argv[k+1]), atoi(argv[k+2]));
 			printf("%d\n", result);
 			free(givenstate.map);
 			return result;
 		}
 		
 	}
+
+	GRe_play_game_two_players(&state);
 	free(state.map);
 	return 0;
 
